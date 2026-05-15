@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coderoot version="1" lang="ko">
+  <meta>
+    <title>심화 설명 제목</title>
+    <badge>C++14 심화 노트</badge>
+  </meta>
+  <content>
+    <p>기존 설명에서 생략된 배경을 먼저 짚고, C++14 관점의 원리를 쉬운 문장으로 풀어 주세요.</p>
+    <h3>핵심 아이디어</h3>
+    <p>짧은 문법은 <code>inline code</code>로 쓰고, 완성된 예시는 code-block에 넣습니다.</p>
+    <code-block language="cpp"><![CDATA[#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "example\n";
+    return 0;
+}
+]]></code-block>
+    <callout tone="summary">마지막에는 학습자가 기억해야 할 실전 기준을 정리합니다. 그렇습니다.</callout>
+  </content>
+</coderoot>

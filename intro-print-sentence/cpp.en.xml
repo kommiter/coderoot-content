@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coderoot version="1" lang="en">
+  <meta>
+    <title>Advanced Note Title</title>
+    <badge>C++14 deep dive</badge>
+  </meta>
+  <content>
+    <p>Start with what the original lesson leaves implicit, then explain the deeper C++14 idea in plain language.</p>
+    <h3>Core idea</h3>
+    <p>Use <code>inline code</code> for short syntax and a code block for complete examples.</p>
+    <code-block language="cpp"><![CDATA[#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "example\n";
+    return 0;
+}
+]]></code-block>
+    <callout tone="summary">End with the practical rule a learner should remember. yup</callout>
+  </content>
+</coderoot>

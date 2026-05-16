@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coderoot version="1" lang="ko">
+  <meta>
+    <title>std::와 using namespace std의 동작 원리</title>
+    <badge>C++14 심화 노트</badge>
+  </meta>
+  <content>
+    <p>C++ 표준 라이브러리에 포함된 함수와 객체들은 모두 <code>std</code>라는 네임스페이스(namespace) 안에 정의되어 있습니다. 이는 서로 다른 라이브러리나 사용자 정의 코드 간의 이름 충돌(name collision)을 방지하기 위한 설계입니다.</p>
+     ``` 
+    <p>예를 들어, <code>cout</code>이라는 이름을 사용자 코드에서도 정의할 수 있기 때문에, 표준 출력 객체는 <code>std::cout</code>처럼 네임스페이스를 명시하여 구분합니다. 여기서 <code>::</code>는 범위 지정 연산자(scope resolution operator)로, &quot;std 안에 있는 cout&quot;이라는 의미입니다.</p>
+    <h3>핵심 아이디어</h3>
+    <p><code>using namespace std;</code>는 &quot;std 네임스페이스에 있는 모든 이름을 현재 범위로 가져온다&quot;는 의미입니다. 따라서 이후 코드에서는 <code>std::</code>를 생략하고 바로 <code>cout</code>, <code>cin</code> 등을 사용할 수 있습니다.</p>
+    <code-block language="cpp"><![CDATA[#include <iostream>
+```
+
+using namespace std;
+
+int main() {
+cout << "Hello";
+return 0;
+}
+]]></code-block>
+     ``` 
+    <p>반대로 <code>using namespace std;</code>를 사용하지 않으면, 아래와 같이 모든 표준 라이브러리 요소 앞에 <code>std::</code>를 명시해야 합니다.</p>
+    <code-block language="cpp"><![CDATA[#include <iostream>
+```
+
+int main() {
+std::cout << "Hello";
+return 0;
+}
+]]></code-block>
+     ``` 
+    <callout tone="summary">std::는 이름 충돌을 방지하기 위한 네임스페이스이며, using namespace std;를 사용하면 해당 네임스페이스의 이름들을 현재 범위로 가져와 std::를 생략할 수 있다.</callout>
+     ``` 
+  </content>
+</coderoot>

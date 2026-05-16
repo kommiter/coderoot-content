@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coderoot version="1" lang="ko">
+  <meta>
+    <title>endl과 \n의 차이</title>
+    <badge>C++14 심화 노트</badge>
+  </meta>
+  <content>
+    <p>C++에서 줄바꿈을 할 때 <code>endl</code>과 <code>\n</code>은 비슷해 보이지만, 내부 동작에는 차이가 있습니다. 둘 다 줄을 바꾸는 역할을 하지만 완전히 같은 것은 아닙니다.</p>
+    <h3>핵심 아이디어</h3>
+    <p><code>\n</code>은 단순한 줄바꿈 문자입니다. 반면 <code>endl</code>은 줄바꿈을 한 뒤, 출력 버퍼를 즉시 비우는 역할까지 함께 수행합니다.</p>
+    <p>출력 버퍼는 화면에 바로 내보내기 전에 내용을 잠시 모아 두는 공간입니다. 따라서 <code>\n</code>은 보통 더 가볍고, <code>endl</code>은 즉시 출력이 필요할 때 사용됩니다.</p>
+    <code-block language="cpp"><![CDATA[#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello\n";
+    cout << "World\n";
+
+    cout << "Hello" << endl;
+    cout << "World" << endl;
+
+    return 0;
+}
+]]></code-block>
+    <p>초보 단계에서는 둘 다 줄바꿈으로 이해해도 괜찮지만, 반복문처럼 출력이 매우 많은 상황에서는 <code>endl</code>을 자주 쓰면 성능이 느려질 수 있습니다. 그래서 일반적인 줄바꿈에는 <code>\n</code>을 더 많이 사용합니다.</p>
+    <callout tone="summary">\n은 줄바꿈 문자이고, endl은 줄바꿈과 함께 출력 버퍼를 비우는 기능까지 수행한다. 따라서 일반적인 줄바꿈에는 \n을, 즉시 출력이 필요할 때는 endl을 쓰는 것이 좋다.</callout>
+  </content>
+</coderoot>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coderoot version="1" lang="ko">
+  <meta>
+    <title>문자와 문자열의 차이 ('' vs &quot;&quot;)</title>
+    <badge>C++14 심화 노트</badge>
+  </meta>
+  <content>
+    <p>C++에서 작은 따옴표(<code>' '</code>)와 큰 따옴표(<code>&quot; &quot;</code>)는 완전히 다른 타입을 의미합니다. 이 차이를 이해하지 못하면 출력이나 문자열 처리에서 오류가 발생할 수 있습니다.</p>
+    <h3>핵심 아이디어</h3>
+    <p><code>'A'</code>는 하나의 문자(<code>char</code>)를 의미하며, <code>&quot;A&quot;</code>는 문자열(<code>const char*</code>)을 의미합니다. 즉, 작은 따옴표는 단일 문자, 큰 따옴표는 여러 문자로 이루어진 문자열입니다.</p>
+    <p>문자(<code>char</code>)는 내부적으로 하나의 ASCII 값으로 저장되며, 문자열은 여러 문자가 연속된 배열 형태로 저장됩니다.</p>
+    <code-block language="cpp"><![CDATA[#include <iostream>
+using namespace std;
+
+int main() {
+    char c = 'A';        // 문자
+    const char* s = "A"; // 문자열
+
+    cout << c << "\n";
+    cout << s << "\n";
+
+    return 0;
+}
+]]></code-block>
+    <p>특히 <code>cout</code>에서 문자열을 출력하려면 반드시 큰 따옴표를 사용해야 합니다. 작은 따옴표를 사용하면 단일 문자만 출력되며, 여러 글자를 넣는 것은 문법적으로 허용되지 않습니다.</p>
+    <code-block language="cpp"><![CDATA[cout << 'A';      // 가능 (문자)
+cout << "A";      // 가능 (문자열)
+cout << 'AB';     // 오류 또는 의도하지 않은 값 (멀티캐릭터 리터럴)
+]]></code-block>
+    <callout tone="summary">작은 따옴표('')는 단일 문자(char), 큰 따옴표(&quot;&quot;)는 문자열을 의미한다. 문장을 출력할 때는 반드시 문자열 타입인 큰 따옴표를 사용해야 한다.</callout>
+  </content>
+</coderoot>
